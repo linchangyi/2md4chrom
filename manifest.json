@@ -1,0 +1,30 @@
+{  
+  "name": "2md",  
+  "manifest_version":2,
+  "version": "1.0.0",  
+  "icons":
+    {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+  "browser_action": {  
+    "default_icon": "icon.png" ,
+    "default_title": "2md"
+  },
+  "permissions":[
+      "contextMenus",
+      "tabs",
+      "storage"
+  ],
+  "background":{
+      "scripts":["background.js"]
+  },
+  "content_scripts":[
+      {
+          "matches": ["<all_urls>"],
+          "js":["do.js"],
+          "run_at":"document_start"
+      }
+  ]
+}
