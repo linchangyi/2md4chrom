@@ -11,12 +11,13 @@ chrome.contextMenus.create({
                 function (response) {
                     if (response.status == 'select_success') {
                         chrome.storage.local.set({ 'content2md': response.content }, function () {
-                            chrome.tabs.create({
-                                url: 'https://phodal.github.io/2md/'
+                            chrome.windows.create({
+                                type: 'popup',
+                                url: 'http://linchangyi.coding.me/turndown/',
+                                // url: 'file:///D:/Workspace/2md/turndown/index.html'
                             });
                         });
                     }
-
                 });
         });
     }

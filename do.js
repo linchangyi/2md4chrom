@@ -14,7 +14,8 @@ chrome.runtime.onMessage.addListener(
 	}
 );
 
-if (window.location.href == 'https://phodal.github.io/2md/') {
+if (window.location.href == 'http://linchangyi.coding.me/turndown/') {
+// if (window.location.href == 'file:///D:/Workspace/2md/turndown/index.html') {
 	addLoadEvent(function () {
 		chrome.runtime.sendMessage({ status: '2md_loaded' }, function (response) {
 			if(response.status == 'content_ready'){
@@ -25,12 +26,13 @@ if (window.location.href == 'https://phodal.github.io/2md/') {
 }
 
 function convertMd(content) {
-	var ele = document.getElementById('input_ifr').contentWindow.document.getElementsByTagName('body')[0];
+	var ele = document.getElementById('input');
 
 	ele.innerHTML = content;
 
-	ele.focus();
-	document.getElementById('output').focus();
+	document.getElementById('hit').click();
+	// ele.focus();
+	// document.getElementById('output').focus();
 }
 
 function serialize(fragment) {
